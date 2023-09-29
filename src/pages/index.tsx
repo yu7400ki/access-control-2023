@@ -66,7 +66,7 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <div>
-        <h1>INIAD FES 入退構サービス</h1>
+        <h1 className={styles.title}>赤羽台祭 入退構サービス</h1>
       </div>
       <main>
         <Select
