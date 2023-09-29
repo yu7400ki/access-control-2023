@@ -1,3 +1,9 @@
 .container {
+  min-height: 100svh;
   padding: 4vmin;
+  background-color: rgb(188 247 255);
+}
+
+.title {
+  margin: 0;
 }
