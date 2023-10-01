@@ -105,7 +105,7 @@ const Home = () => {
           checkedIndex={data.composition ?? null}
           onChange={handleSelectChange}
         />
-        <button disabled={isDisabled} onClick={handleSubmit}>
+        <button disabled={isDisabled} onClick={handleSubmit} className={styles.button}>
           送信
         </button>
       </main>
