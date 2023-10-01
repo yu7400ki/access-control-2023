@@ -11,10 +11,10 @@ const QrReader: React.FC<Props> = ({ setResult, onRequestClose }: Props) => {
       setResult(result.getText());
       onRequestClose();
     },
-    onDecodeError(error) {
-      // eslint-disable-next-line no-console
-      console.log(error);
-    },
+    // onDecodeError(error) {
+    //   // eslint-disable-next-line no-console
+    //   console.log(error);
+    // },
     onError(error) {
       // eslint-disable-next-line no-console
       console.error(error);
@@ -23,7 +23,7 @@ const QrReader: React.FC<Props> = ({ setResult, onRequestClose }: Props) => {
 
   return (
     <>
-      <video ref={ref} style={{ maxWidth: '100%;', maxHeight: '60%' }} />
+      <video ref={ref} className="videoFrame" style={{ maxWidth: '100%;', maxHeight: '60%' }} />
     </>
   );
 };
