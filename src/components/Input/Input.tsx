@@ -18,6 +18,7 @@ export const Input = (props: Props) => {
         id={props.name}
         value={props.value}
         onChange={props.onChange}
+        className={styles.input}
       />
     </div>
   );

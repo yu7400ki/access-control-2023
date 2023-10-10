@@ -66,7 +66,7 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <div>
-        <h1>INIAD FES 入退構サービス</h1>
+        <h1 className={styles.title}>赤羽台祭 入退構サービス</h1>
       </div>
       <main>
         <Select
@@ -105,7 +105,7 @@ const Home = () => {
           checkedIndex={data.composition ?? null}
           onChange={handleSelectChange}
         />
-        <button disabled={isDisabled} onClick={handleSubmit}>
+        <button disabled={isDisabled} onClick={handleSubmit} className={styles.button}>
           送信
         </button>
       </main>
