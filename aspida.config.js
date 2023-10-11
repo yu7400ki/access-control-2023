@@ -1,6 +1,4 @@
-import { config } from 'dotenv';
-
-config({ path: './.env' });
+require('dotenv').config({ path: './.env' });
 
 module.exports = {
   input: './src/api/',
