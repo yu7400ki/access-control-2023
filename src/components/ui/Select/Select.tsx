@@ -12,17 +12,23 @@ type Props = {
 export const Select = (props: Props) => {
   return (
     <div className={styles.container}>
-      {props.label !== null && <label htmlFor={props.name}>{props.label}</label>}
-      <select name={props.name} id={props.name} onChange={props.onChange}>
-        <option value="" hidden selected={props.checkedIndex === null}>
-          選択してください
-        </option>
-        {props.options.map((option, i) => (
-          <option value={i} key={option} selected={props.checkedIndex === i}>
-            {option}
+      {props.label !== null && (
+        <label htmlFor={props.name} className={styles.label}>
+          {props.label}
+        </label>
+      )}
+      <div className={styles.select}>
+        <select name={props.name} id={props.name} onChange={props.onChange}>
+          <option value="" hidden selected={props.checkedIndex === null}>
+            選択してください
           </option>
-        ))}
-      </select>
+          {props.options.map((option, i) => (
+            <option value={i} key={option} selected={props.checkedIndex === i}>
+              {option}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 };

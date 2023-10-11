@@ -1,13 +1,24 @@
 .container {
-  justify-content: center;
-  color: rgb(0 0 0);
+  margin: 4svmin 0;
 }
 
 .input {
-  box-sizing: border-box;
-  width: 50%;
-  padding: 10px 15px;
-  font-size: 16px;
-  border: 2px solid #ddd;
-  border-radius: 3px;
+  display: block;
+  width: 100%;
+  padding: 1.2svmin 2svmin;
+  background-color: #fafafa;
+  border: 0;
+  border: 0.6svmin solid #fff;
+  border-radius: 1.2svmin;
+  box-shadow: 0 0 0 0.1svmin #ccc;
+}
+
+.input:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.3svmin #2eb6ff;
+}
+
+.label {
+  display: inline-block;
+  margin-bottom: 0.4svmin;
 }

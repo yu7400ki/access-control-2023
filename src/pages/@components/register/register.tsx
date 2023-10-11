@@ -76,9 +76,9 @@ export const Register = () => {
 
   return (
     <div className={styles.container}>
-      <div>
-        <h1 className={styles.title}>赤羽台祭 入退構サービス</h1>
-      </div>
+      <header>
+        <h1 className={styles.title}>赤羽台祭へようこそ</h1>
+      </header>
       <main>
         <Select
           label="年齢"
@@ -108,7 +108,7 @@ export const Register = () => {
           checkedIndex={data.home ?? null}
           onChange={handleSelectChange}
         />
-        <Input label="人数" name="number" value={data.people ?? 0} onChange={handleInputChange} />
+        <Input label="人数" name="people" value={data.people ?? 0} onChange={handleInputChange} />
         <Select
           label="グループ構成"
           name="composition"
@@ -116,10 +116,10 @@ export const Register = () => {
           checkedIndex={data.composition ?? null}
           onChange={handleSelectChange}
         />
-        <button disabled={isDisabled} onClick={handleSubmit} className={styles.button}>
-          送信
-        </button>
       </main>
+      <button disabled={isDisabled} onClick={handleSubmit} className={styles.button}>
+        送信
+      </button>
     </div>
   );
 };
