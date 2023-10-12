@@ -1,0 +1,7 @@
+.videoFrame {
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  border: solid 4px #ff6f00;
+  border-radius: 20px;
+}

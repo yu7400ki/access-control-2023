@@ -23,8 +23,29 @@ const QrCode: NextPage = () => {
     });
   }, [qrCodeText]);
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch('http://localhost:8080/api/user', { method: 'GET' });
+
+  //       if (!response.ok) {
+  //         console.error('Error fetching the program', response.status);
+  //         return;
+  //       }
+
+  //       const data = await response.json();
+  //       console.log(data);
+  //     } catch (error) {
+  //       console.error('Error fetching the program', error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
+
   return (
     <>
+      <p>{program} QRコード</p>
       <img className={styles.qrCodeImg} src={qrCodeData} alt="QRCode-image" />
     </>
   );

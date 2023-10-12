@@ -1,62 +1,31 @@
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import QrReader from '../../components/QrReader';
+import QrReader from '../../components/QrReader/QrReader';
 import styles from './qrcode.module.css';
 
-// type ApiResponse = {
-//   tmp: boolean;
-// };
-
 const QrReaderPage = () => {
-  // const router = useRouter();
-  // const org = router.query.org as string;
-  const [result, setResult] = useState<string>('');
-  const [showPopup, setShowPopup] = useState<boolean>(false);
-
-  // const data = useMemo(() => {
-  //   if (result && org) {
-  //     return { org, qrData: result };
-  //   }
-  //   return null;
-  // }, [result, org]);
+  const router = useRouter();
+  const [qrData, setQrData] = useState<string>('');
 
   useEffect(() => {
-    // const postData = async () => {
-    //   if (process.env.NEXT_PUBLIC_SERVER_URL)
-    //     await fetch(process.env.NEXT_PUBLIC_SERVER_URL, {
-    //       method: 'POST',
-    //       headers: {
-    //         'Content-Type': 'application/json',
-    //       },
-    //       body: `${JSON.stringify(data)}`,
-    //     })
-    //       .then(async (response) => {
-    //         const responseData: ApiResponse = await response.json();
-    //       })
-    //       .catch(() => {
-    //         // エラーハンドリング
-    //       });
-    // };
-
-    const showThankYouPopup = () => {
-      setShowPopup(true);
-      setTimeout(() => {
-        setShowPopup(false);
-      }, 1700);
-    };
-
-    if (result !== '') {
-      // postData();
-      showThankYouPopup();
+    if (qrData.length !== 0) {
+      router.push(qrData);
     }
-  }, [result]);
+  }, [qrData, router]);
 
   return (
     <div className={styles.container}>
-      {showPopup && <div className={styles.popup}>読み込みありがとうございます!!</div>}
+      <h2 className={styles.title}>行動把握システム</h2>
       <div className={styles.cameraContainer}>
-        <QrReader setResult={setResult} onRequestClose={() => null} />
+        <QrReader setResult={setQrData} onRequestClose={() => null} />
       </div>
-      <p>{result}</p>
+      <p className={styles.text}>学内にあるQRコードをスキャンしよう！</p>
+
+      <a href="https://akabanedai-fes.com/02/" className={styles.site}>
+        <img src="/logo.png" className={styles.logoImg} />
+        <br />
+        赤羽台祭公式サイトはこちら
+      </a>
     </div>
   );
 };
