@@ -1,4 +1,5 @@
 import { useZxing } from 'react-zxing';
+import styles from './QrReader.module.css';
 
 type Props = {
   setResult: React.Dispatch<React.SetStateAction<string>>;
@@ -23,7 +24,7 @@ const QrReader: React.FC<Props> = ({ setResult, onRequestClose }: Props) => {
 
   return (
     <>
-      <video ref={ref} className="videoFrame" style={{ maxWidth: '100%;', maxHeight: '60%' }} />
+      <video ref={ref} className={styles.videoFrame} />
     </>
   );
 };
