@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { apiClient } from '../utils/apiClient';
 import { Camera } from './@components/camera/camera';
 import { Register } from './@components/register/register';
 
@@ -9,15 +10,17 @@ const Home = () => {
   const query = router.query.program;
 
   useEffect(() => {
-    const cookies = document.cookie.split(';');
-    const uid = cookies.find((v) => v.includes('uid='));
-    if (uid !== undefined) {
-      setIsRegistered(true);
-    } else {
-      if (query !== undefined) {
-        router.push('/');
+    const fetch = async () => {
+      return await apiClient.user.$get();
+    };
+    (async () => {
+      try {
+        await fetch();
+        setIsRegistered(true);
+      } catch {
+        setIsRegistered(false);
       }
-    }
+    })();
   }, [query, router]);
 
   if (!isRegistered) return <Register />;
