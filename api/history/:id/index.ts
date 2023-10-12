@@ -1,7 +1,7 @@
-import type * as Types from '../../../@types';
+import type * as Types from '../../@types';
 
 export type Methods = {
-  post: {
+  delete: {
     status: 200;
     resBody: Types.HistoryResponse;
   };

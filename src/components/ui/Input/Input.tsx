@@ -11,7 +11,11 @@ type Props = {
 export const Input = (props: Props) => {
   return (
     <div className={styles.container}>
-      {props.label !== null && <label htmlFor={props.name}>{props.label}</label>}
+      {props.label !== null && (
+        <label htmlFor={props.name} className={styles.label}>
+          {props.label}
+        </label>
+      )}
       <input
         type="text"
         name={props.name}
