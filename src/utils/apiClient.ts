@@ -5,6 +5,7 @@ import { API_BASE_PATH, API_ORIGIN } from './envValue';
 
 const fetchConfig: FetchConfig = {
   baseURL: `${API_ORIGIN}${API_BASE_PATH}`,
+  throwHttpErrors: true,
 };
 
 export const apiClient = api(aspida(fetch, fetchConfig));
