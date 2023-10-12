@@ -1,6 +1,6 @@
 import type { ChangeEvent } from 'react';
 import { useMemo, useState } from 'react';
-import type { UserRequest } from '../../../api/@types';
+import type { UserRequest } from '../../../../api/@types';
 import { Input } from '../../../components/ui/Input/Input';
 import { Select } from '../../../components/ui/Select/Select';
 import { apiClient } from '../../../utils/apiClient';
@@ -41,11 +41,12 @@ export const Register = () => {
     const name = e.target.name;
     setData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: Number(value),
     }));
   };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    console.log(data);
     const value = e.target.value;
     const name = e.target.name;
     const isNumber = !isNaN(Number(value)) || value === '';
@@ -53,7 +54,7 @@ export const Register = () => {
 
     setData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: Number(value),
     }));
   };
 
@@ -63,7 +64,7 @@ export const Register = () => {
     return isEmpty || isNegative(data.people ?? -1);
   }, [data]);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const isEmpty = Object.values(data).some((v) => !isDefined(v));
     if (isEmpty) return;
 
@@ -71,7 +72,7 @@ export const Register = () => {
       Object.entries(data).filter(([_, v]) => [_, isDefined(v)])
     ) as UserRequest;
 
-    apiClient.api.user.$post({ body: definedData });
+    await apiClient.user.$post({ body: definedData });
   };
 
   return (
