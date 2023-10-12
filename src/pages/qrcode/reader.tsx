@@ -17,7 +17,6 @@ const QrReaderPage = () => {
     <div className={styles.container}>
       <h2 className={styles.title}>行動把握システム</h2>
       <div className={styles.cameraContainer}>
-        <div className={styles.overlay} />
         <QrReader setResult={setQrData} onRequestClose={() => null} />
       </div>
       <p className={styles.text}>学内にあるQRコードをスキャンしよう！</p>
