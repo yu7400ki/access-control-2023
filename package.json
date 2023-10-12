@@ -6,7 +6,10 @@
     "dev": "run-p dev:*",
     "dev:next": "next dev -p 3000",
     "dev:hcm": "hcm 'src/**/*.module.css' -w",
-    "hcm": "hcm 'src/**/*.module.css'",
+    "dev:aspida": "aspida -w",
+    "generate": "run-p generate:*",
+    "generate:hcm": "hcm 'src/**/*.module.css'",
+    "generate:aspida": "aspida",
     "build": "next build",
     "lint": "run-p lint:js lint:prettier lint:style",
     "lint:js": "eslint --ext .ts,.tsx,.js --ignore-path .gitignore .",
@@ -14,9 +17,12 @@
     "lint:style": "stylelint \"src/**/*.css\" --ignore-path .gitignore",
     "lint:fix": "npm run lint:js -- --fix && prettier --write \"./**/*.{ts,tsx,js}\" --ignore-path .gitignore && npm run lint:style -- --fix",
     "start": "next start",
-    "typecheck": "npm run hcm && tsc --noEmit"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@aspida/fetch": "^1.14.0",
+    "aspida": "^1.14.0",
+    "dotenv": "^16.3.1",
     "next": "^13.4.13",
     "qrcode": "^1.5.3",
     "react": "^18.2.0",

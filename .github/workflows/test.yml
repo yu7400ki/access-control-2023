@@ -19,5 +19,6 @@ jobs:
           key: npm-${{ hashFiles('package-lock.json') }}
       - run: npm install
         if: steps.npm-cache.outputs.cache-hit != 'true'
+      - run: npm run generate
       - run: npm run lint
       - run: npm run typecheck

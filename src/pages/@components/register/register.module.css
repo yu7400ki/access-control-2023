@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  padding: 8svmin;
+  color: #222;
+  background-color: #ddf6ff;
+}
+
+.container > header {
+  flex: 0 0 auto;
+}
+
+.container > main {
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.title::first-letter {
+  color: #a03b3b;
+}
+
+.button {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding: 2svmin 0;
+  margin: 0 auto;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  background-color: #0060fa;
+  border: none;
+  border-radius: 8px;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.2s;
+  transition-property: background-color;
+}
+
+.button:active {
+  background-color: #0040d0;
+}
+
+.button[disabled] {
+  cursor: not-allowed;
+  background-color: #cbdde8;
+}

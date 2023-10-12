@@ -21,11 +21,13 @@
 tsconfig.tsbuildinfo
 *.css.d.ts
 *.css.d.ts.map
+$*.ts
 
 # debug
 npm-debug.log*
 
 # local env files
+.env
 .env.local
 .env.development.local
 .env.test.local

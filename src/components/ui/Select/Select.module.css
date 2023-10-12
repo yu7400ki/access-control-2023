@@ -1,0 +1,53 @@
+.container {
+  margin: 4svmin 0;
+}
+
+.select > select {
+  display: block;
+  width: 100%;
+  padding: 1.2svmin 2svmin;
+  cursor: pointer;
+  background-color: #fafafa;
+  border: 0;
+  border: 0.6svmin solid #fff;
+  border-radius: 1.2svmin;
+  box-shadow: 0 0 0 0.1svmin #ccc;
+  appearance: none;
+}
+
+.select > select:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.3svmin #2eb6ff;
+}
+
+.select {
+  position: relative;
+}
+
+.select::before,
+.select::after {
+  position: absolute;
+  top: 50%;
+  right: 3svmin;
+  display: block;
+  width: 1.6svmin;
+  height: 0.4svmin;
+  content: '';
+  background-color: #444;
+  border-radius: 0.2svmin;
+}
+
+.select::after {
+  rotate: 45deg;
+  translate: calc(-0.6svmin / 1.414) 0;
+}
+
+.select::before {
+  rotate: -45deg;
+  translate: calc(0.6svmin / 1.414) 0;
+}
+
+.label {
+  display: inline-block;
+  margin-bottom: 0.4svmin;
+}

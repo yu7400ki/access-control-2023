@@ -1,0 +1,24 @@
+.container {
+  margin: 4svmin 0;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  padding: 1.2svmin 2svmin;
+  background-color: #fafafa;
+  border: 0;
+  border: 0.6svmin solid #fff;
+  border-radius: 1.2svmin;
+  box-shadow: 0 0 0 0.1svmin #ccc;
+}
+
+.input:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.3svmin #2eb6ff;
+}
+
+.label {
+  display: inline-block;
+  margin-bottom: 0.4svmin;
+}
