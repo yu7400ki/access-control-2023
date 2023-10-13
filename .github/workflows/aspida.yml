@@ -1,0 +1,66 @@
+name: aspida
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  aspida:
+    name: aspida
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: clone server
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ github.repository_owner }}/access-control-2023-backend
+          ref: main
+          path: server
+      - name: set env
+        id: set-env
+        run: |
+          cd server
+          date=$(date '+%Y%m%d%H%M%S')
+          echo "branch_name=update-aspida-${date}" >> $GITHUB_ENV
+      - uses: actions/cache@v3
+        id: client-cache
+        with:
+          path: "node_modules"
+          key: ${{ runner.os }}-clinet-${{ hashFiles('package-lock.json') }}
+      - uses: actions/cache@v3
+        id: server-cache
+        with:
+          path: "server/node_modules"
+          key: ${{ runner.os }}-server-${{ hashFiles('server/package-lock.json') }}
+      - name: install client
+        if: steps.client-cache.outputs.cache-hit != 'true'
+        run: npm i
+      - name: install server
+        if: steps.server-cache.outputs.cache-hit != 'true'
+        run: npm i --prefix server
+      - name: generate openapi
+        run: |
+          cd server
+          npm run generate:openapi -s > ../openapi.json
+      - name: create types
+        run: |
+          rm -rf ./api
+          npx openapi2aspida --i openapi.json
+          npx prettier ./api/**/* --write
+      - name: remove server
+        run: |
+          rm -rf server
+          rm openapi.json
+      - name: create pr
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: update aspida
+          delete-branch: true
+          title: Update aspida
