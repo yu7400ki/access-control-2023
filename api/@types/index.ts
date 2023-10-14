@@ -1,3 +1,4 @@
+/* eslint-disable */
 export type UserResponse = {
   id: string;
 
