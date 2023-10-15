@@ -28,10 +28,14 @@
 
 .cameraContainer {
   position: relative;
-  width: 100vw;
-  max-width: 400px;
-  height: 40vh;
-  max-height: 400px;
+
+  /* width: 100vw; */
+
+  /* max-width: 400px; */
+
+  /* height: 40vh; */
+
+  /* max-height: 400px; */
   margin: 20px 0;
 }
 
