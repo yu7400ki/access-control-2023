@@ -22,7 +22,6 @@
   "dependencies": {
     "@aspida/fetch": "^1.14.0",
     "aspida": "^1.14.0",
-    "dotenv": "^16.3.1",
     "next": "^13.4.13",
     "qrcode": "^1.5.3",
     "react": "^18.2.0",
